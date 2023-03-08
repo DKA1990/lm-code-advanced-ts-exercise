@@ -12,9 +12,9 @@ export function print(str: string, newLine = true) {
 	}
 }
 
-export function clear(addTopBorder?: "yes") {
+export function clear(addTopBorder?: boolean) {
 	console.clear();
-	if (addTopBorder === "yes") {
+	if (addTopBorder === true) {
 		print("------------------------------------");
 	}
 }

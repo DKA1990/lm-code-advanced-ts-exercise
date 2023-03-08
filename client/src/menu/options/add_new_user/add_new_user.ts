@@ -1,10 +1,7 @@
 import { sendNewUser } from "../../../api/send_new_user";
-import { states } from "../../../states/states";
-import { clear, print, printNewLine, prompt } from "../../../ui/console";
+import { print, printNewLine, prompt } from "../../../ui/console";
 
 export async function addNewUser() {
-	clear();
-
 	const userName = await prompt("What is the new users Username? ");
 
 	printNewLine();
@@ -16,6 +13,4 @@ export async function addNewUser() {
 	else print("😵 Failed to create new user.");
 
 	await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
-
-	return states.MENU;
 }

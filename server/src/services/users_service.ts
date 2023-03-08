@@ -8,7 +8,9 @@ export function getAllUsers(): User[] {
 }
 
 export function postNewUser(userName: string) {
-	usersArr.push({
+// This looks weird when printed compared to the original. Por que?
+	usersArr.push(
+	{
 		id: (usersArr.length + 1).toString(),
 		name: userName,
 		creationDate: new Date(),

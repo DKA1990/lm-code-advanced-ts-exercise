@@ -1,5 +1,6 @@
 import { exit } from "./exit/exit";
 import { showMenu } from "./menu/menu";
+import { addNewPost } from "./menu/options/add_new_post/add_new_post";
 import { addNewUser } from "./menu/options/add_new_user/add_new_user";
 import { browsePosts } from "./menu/options/browse_posts/browse_posts";
 import { sendMessage } from "./menu/options/send_message/send_message";
@@ -10,7 +11,7 @@ import { states } from "./states/states";
 import { clear, print, printNewLine, prompt } from "./ui/console";
 
 async function begin() {
-	clear("yes");
+	clear(true);
 	print("👋 Welcome to our cool blog browser!");
 	await prompt("⌨️ Press [ENTER] to continue! 🕶️");
 	main();
@@ -20,14 +21,20 @@ async function main() {
 	let state: State = new State();
 
 	while (true) {
+		async function checkState<T>(state: T) {
+			
+		}
+
 		switch (state.get()) {
 			case "MENU":
+				clear();
 				const newMenuOption = await showMenu();
 				state.set(newMenuOption);
 				break;
 			case "SEND_MESSAGE":
+				clear();
 				const nextState = await sendMessage();
-				state.set(nextState);
+				state.set(states.MENU);
 				break;
 			case "SHOW_POSTS":
 				clear();
@@ -48,7 +55,12 @@ async function main() {
 				clear();
 				//print("🏗️  This functionality has not been implemented!");
 				//await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
-				const user = await addNewUser();
+				const newUser = await addNewUser();
+				state.set(states.MENU);
+				break;
+			case "ADD_POST":
+				clear();
+				const newPost = await addNewPost();
 				state.set(states.MENU);
 				break;
 			case "UNKNOWN":

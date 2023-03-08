@@ -77,6 +77,10 @@ function addAPIRoutes(app: Express) {
 		else res.status(200).send(JSON.stringify({ postFound: false }));
 	});
 
+	apiRouter.post("/posts/add", (req, res) => {
+		res.status(200).send("Post added!");
+	});
+
 	console.log("✍️  Adding user routes...");
 	apiRouter.get("/users/all", (req, res) => {
 		res.status(200).send(JSON.stringify(getAllUsers()));
@@ -86,7 +90,7 @@ function addAPIRoutes(app: Express) {
 		const { body } = req;
 		const user = postNewUser(body.name);
 		if (user !== undefined) {
-			res.status(200).send(JSON.stringify({ success: true, ...user }));
+			res.status(200).send(JSON.stringify({ success: true }));
 		} else {
 
 		}

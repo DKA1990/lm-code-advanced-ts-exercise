@@ -6,6 +6,7 @@ export const states = {
 	SHOW_POSTS: "SHOW_POSTS"  as const,
 	SHOW_USERS: "SHOW_USERS"  as const,
 	BROWSE_POSTS: "BROWSE_POSTS"  as const,
+	ADD_POST: "ADD_POST" as const,
 
 	ADD_USER: "ADD_USER"  as const,
 
