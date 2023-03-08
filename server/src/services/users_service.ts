@@ -8,9 +8,10 @@ export function getAllUsers(): User[] {
 }
 
 export function postNewUser(userName: string) {
-// This looks weird when printed compared to the original. Por que?
+// Validation necessary for future!
 	usersArr.push(
 	{
+		// If users can ever be deleted this will become an issue!
 		id: (usersArr.length + 1).toString(),
 		name: userName,
 		creationDate: new Date(),

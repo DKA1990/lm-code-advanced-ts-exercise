@@ -1,6 +1,6 @@
 import * as express from "express";
 import { Express } from "express";
-import { getAllPosts } from "../services/posts_service";
+import { getAllPosts, postNewPost } from "../services/posts_service";
 import { getAllUsers, postNewUser } from "../services/users_service";
 
 /*
@@ -78,7 +78,13 @@ function addAPIRoutes(app: Express) {
 	});
 
 	apiRouter.post("/posts/add", (req, res) => {
-		res.status(200).send("Post added!");
+		const { body } = req;
+		const post = postNewPost(body.title, body.text, body.userId);
+		if (post !== undefined) {
+			res.status(200).send(JSON.stringify({ success: true }));
+		} else {
+			
+		}
 	});
 
 	console.log("✍️  Adding user routes...");

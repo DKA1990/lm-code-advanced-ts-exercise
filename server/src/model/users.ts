@@ -2,6 +2,11 @@ import { User } from "../types/posts.types";
 
 export const usersArr: User[] = [
     {
+        id: "0",
+        name: "Anon",
+        creationDate: new Date(),
+    },
+    {
         id: "1",
         name: "Spicy Hotfish",
         creationDate: new Date(),

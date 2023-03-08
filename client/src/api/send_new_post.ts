@@ -1,6 +1,6 @@
 import { baseUrl } from "./base_url";
 
-export async function sendNewPost(title: string, text: string) {
+export async function sendNewPost(title: string, text: string, userId: string) {
 	try {
 		const result = await fetch(baseUrl + "/api/posts/add", {
 			headers: {
@@ -9,7 +9,8 @@ export async function sendNewPost(title: string, text: string) {
 			method: "POST",
 			body: JSON.stringify({ 
                 title: title,
-                text: text
+                text: text,
+				userId: userId
              }),
 		});
 

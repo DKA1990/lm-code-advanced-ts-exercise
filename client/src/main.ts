@@ -21,10 +21,6 @@ async function main() {
 	let state: State = new State();
 
 	while (true) {
-		async function checkState<T>(state: T) {
-			
-		}
-
 		switch (state.get()) {
 			case "MENU":
 				clear();
@@ -53,8 +49,6 @@ async function main() {
 				break;
 			case "ADD_USER":
 				clear();
-				//print("🏗️  This functionality has not been implemented!");
-				//await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
 				const newUser = await addNewUser();
 				state.set(states.MENU);
 				break;
